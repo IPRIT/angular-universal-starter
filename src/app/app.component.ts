@@ -18,6 +18,7 @@ export class XLarge {
     // we must interact with the dom through -Renderer-
     // for webworker/server to see the changes
     renderer.setElementStyle(element.nativeElement, 'fontSize', 'x-large');
+    renderer.setElementClass(element.nativeElement, 'test', true);
     // ^^
   }
 }

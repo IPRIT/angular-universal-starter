@@ -76,7 +76,7 @@ module.exports = [
 
   // Server
   webpackMerge({}, defaultConfig, commonConfig, serverConfig)
-]
+];
 
 // Helpers
 function checkNodeImport(context, request, cb) {

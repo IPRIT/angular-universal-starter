@@ -8,12 +8,25 @@
   },
   "scripts": {
     "watch": "webpack --watch",
+
     "prebuild": "rimraf dist",
+    "prebuild:prod": "npm run prebuild",
+
     "build": "webpack",
     "build:prod": "webpack --progress -p",
+
     "prestart": "npm run build",
+    "prestart:prod": "npm run build:prod",
+
     "server": "nodemon dist/server/index.js",
+    "server:prod": "node dist/server/index.js",
+    "server:prod:pm2": "pm2 start dist/server/index.js -i 0 --name frontend",
+
     "start": "npm run server",
+    "start:prod": "npm run server:prod",
+    "start:prod:pm2": "npm run prestart:prod && npm run server:prod:pm2",
+    "start:prod:pm2:built": "npm run prestart:prod && npm run server:prod:pm2",
+
     "predebug": "npm run build",
     "debug:build": "node-nightly --inspect --debug-brk node_modules/webpack/bin/webpack.js",
     "debug": "node --debug-brk dist/server/index.js"
